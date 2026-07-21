@@ -38,7 +38,7 @@ QQ_02_ServiceQualification_ADI()
     sq_adi_start_clock = rt_now_clock();
 
     web_custom_request("web_custom_request",
-        "URL=https://api-servicequal.dummy.example.com/api/v1/service-qualification",
+        "URL=https://api-servicequal.dummy.example.com",
         "Method=POST",
         "TargetFrame=",
         "Resource=0",
@@ -109,7 +109,7 @@ QQ_04_PriceOffer_ADI()
     lr_start_transaction("QQ_02_ServiceQualification_ADI");
 
     web_custom_request("web_custom_request",
-        "URL=https://api-servicequal.dummy.example.com/api/v1/service-qualification",
+        "URL=https://api-servicequal.dummy.example.com",
         "Method=POST",
         "TargetFrame=",
         "Resource=0",
