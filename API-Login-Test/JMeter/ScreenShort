@@ -1,1 +1,67 @@
 
+to generate HTML report we can do following steps: 
+Step 1: Run the JMeter test and save the results
+Open Command Prompt or Terminal and navigate to the JMeter bin folder.
+
+cd /path/to/apache-jmeter/bin
+
+Run your test in non-GUI mode:
+
+jmeter -n -t TestPlan.jmx -l results.jtl
+
+Parameters:
+
+-n = Non-GUI mode
+-t = Test plan (.jmx)
+-l = Result file (.jtl)
+Example:
+
+jmeter -n -t D:\JMeter\TestPlan.jmx -l D:\JMeter\Results\results.jtl
+
+Step 2: Generate the HTML Report
+After the test completes, run:
+
+jmeter -g results.jtl -o HTMLReport
+
+Or with full paths:
+
+jmeter -g D:\JMeter\Results\results.jtl -o D:\JMeter\Results\HTMLReport
+
+Parameters:
+
+-g = Input JTL file
+-o = Output folder for the HTML report
+Note: The output folder (HTMLReport) must not already exist, or it must be empty.
+
+Step 3: Open the Report
+Go to the output folder and open:
+
+HTMLReport/index.html
+
+in your web browser.
+
+One Command (Run Test + Generate Report)
+jmeter -n -t D:\JMeter\TestPlan.jmx -l D:\JMeter\Results\results.jtl
+jmeter -g D:\JMeter\Results\results.jtl -o D:\JMeter\Results\HTMLReport
+
+If you get an error
+Error:
+
+Cannot write to 'HTMLReport' as folder already exists
+
+Delete the existing report folder or specify a new folder:
+
+rmdir /s /q D:\JMeter\Results\HTMLReport
+jmeter -g D:\JMeter\Results\results.jtl -o D:\JMeter\Results\HTMLReport
+
+Example for Windows
+cd C:\apache-jmeter-5.6.3\bin
+
+jmeter -n -t C:\Tests\API_Test.jmx -l C:\Tests\Results\results.jtl
+
+jmeter -g C:\Tests\Results\results.jtl -o C:\Tests\Results\HTMLReport
+
+This will generate an HTML dashboard with metrics such as response times, throughput, error percentage, active threads, and response time distribution.
+
+
+
